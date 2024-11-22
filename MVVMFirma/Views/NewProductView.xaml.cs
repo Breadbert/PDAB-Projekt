@@ -17,7 +17,7 @@ namespace MVVMFirma.Views
     /// <summary>
     /// Interaction logic for NewProductView.xaml
     /// </summary>
-    public partial class NewProductView : AllViewsBase
+    public partial class NewProductView : OneViewBase
     {
         public NewProductView()
         {

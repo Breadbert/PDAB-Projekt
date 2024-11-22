@@ -6,8 +6,15 @@
              xmlns:local="clr-namespace:MVVMFirma.Views"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
-        <Label Content="Here are all of the products."></Label>
-
+    <Grid Background="White">
+        <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding List}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Product ID" Binding="{Binding ProductID}"/>
+                <DataGridTextColumn Header="Product Name" Binding="{Binding ProductName}"/>
+                <DataGridTextColumn Header="Price" Binding="{Binding Price}"/>
+                <DataGridTextColumn Header="Stock Quantity" Binding="{Binding StockQuantity}"/>
+                <DataGridTextColumn Header="Category ID" Binding="{Binding CategoryID}"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </local:AllViewsBase>

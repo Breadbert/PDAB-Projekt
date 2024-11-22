@@ -4,23 +4,23 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="747396f5840b4ca2ac18665b4b64cd9b" Name="Diagram1" ZoomLevel="92">
-        <EntityTypeShape EntityType="PDABModel.Categories" Width="1.5" PointX="6" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="PDABModel.Customers" Width="1.5" PointX="0.75" PointY="8" IsExpanded="true" />
-        <EntityTypeShape EntityType="PDABModel.Discounts" Width="1.5" PointX="3.75" PointY="4.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="PDABModel.Employees" Width="1.5" PointX="3.75" PointY="11.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="PDABModel.GiftCards" Width="1.5" PointX="3" PointY="8" IsExpanded="true" />
-        <EntityTypeShape EntityType="PDABModel.Inventory" Width="1.5" PointX="10.5" PointY="2" IsExpanded="true" />
+      <Diagram DiagramId="a3b023b80af949cb86aa13e646d66372" Name="Diagram1" ZoomLevel="64">
+        <EntityTypeShape EntityType="PDABModel.Categories" Width="1.5" PointX="6" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PDABModel.Customers" Width="1.5" PointX="0.75" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PDABModel.Discounts" Width="1.5" PointX="3.75" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PDABModel.Employees" Width="1.5" PointX="3.75" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PDABModel.GiftCards" Width="1.5" PointX="3" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PDABModel.Inventory" Width="1.5" PointX="10.5" PointY="1.875" IsExpanded="true" />
         <EntityTypeShape EntityType="PDABModel.InvoiceDetails" Width="1.5" PointX="10.5" PointY="5" IsExpanded="true" />
         <EntityTypeShape EntityType="PDABModel.Invoices" Width="1.5" PointX="8.25" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="PDABModel.OrderDetails" Width="1.5" PointX="8.25" PointY="8.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="PDABModel.Orders" Width="1.5" PointX="6" PointY="7.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="PDABModel.Payments" Width="1.5" PointX="8.25" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PDABModel.OrderDetails" Width="1.5" PointX="8.25" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="PDABModel.Orders" Width="1.5" PointX="6" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PDABModel.Payments" Width="1.5" PointX="8.25" PointY="11" IsExpanded="true" />
         <EntityTypeShape EntityType="PDABModel.Products" Width="1.5" PointX="8.25" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="PDABModel.PurchaseOrderDetails" Width="1.5" PointX="15.25" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="PDABModel.PurchaseOrders" Width="1.5" PointX="13" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="PDABModel.PurchaseOrders" Width="1.5" PointX="13" PointY="8.875" IsExpanded="true" />
         <EntityTypeShape EntityType="PDABModel.Suppliers" Width="1.5" PointX="10.75" PointY="8.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="PDABModel.sysdiagrams" Width="1.5" PointX="2" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PDABModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="2.625" IsExpanded="true" />
         <AssociationConnector Association="PDABModel.FK_Products_Categories" ManuallyRouted="false" />
         <AssociationConnector Association="PDABModel.FK_GiftCards_Customers" ManuallyRouted="false" />
         <AssociationConnector Association="PDABModel.FK_Orders_Customers" ManuallyRouted="false" />

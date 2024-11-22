@@ -125,7 +125,6 @@
           </Key>
           <Property Name="ProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ProductName" Type="nvarchar" MaxLength="100" />
-          <Property Name="Category" Type="nvarchar" MaxLength="50" />
           <Property Name="Price" Type="decimal" Precision="10" Scale="2" />
           <Property Name="StockQuantity" Type="int" />
           <Property Name="CategoryID" Type="int" />
