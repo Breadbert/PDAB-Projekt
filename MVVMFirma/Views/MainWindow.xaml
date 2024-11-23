@@ -1,61 +1,75 @@
 ﻿<Window x:Class="MVVMFirma.Views.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"  
-        Title="MVVMFirma" Height="720" Width="1000" WindowState="Normal"
-        xmlns:vm="clr-namespace:MVVMFirma.Views"
-        >
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Azymut" Height="720" Width="1000" WindowState="Normal">
     <Window.Resources>
-        <ResourceDictionary Source="MainWindowResources.xaml"  />
+        <ResourceDictionary Source="MainWindowResources.xaml" />
     </Window.Resources>
-    <Grid>
+    <Grid Background="#1A1A1A">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="150"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="150" />
+            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="30"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="30"/>
+            <RowDefinition Height="20" />
+            <RowDefinition Height="60" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="30" />
         </Grid.RowDefinitions>
-        <Menu Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Margin="2">
-            <MenuItem Header="_File"/>
-            <MenuItem Header="_Inventory">
-                <MenuItem Header="All products"/>
-                <MenuItem Header="New product"/>
-                <MenuItem Header="Delivery note"/>
-                <MenuItem Header="Goods received note"/>
+
+        <!-- Top Menu -->
+        <Menu Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Background="Gainsboro" Foreground="Black">
+            <MenuItem Header="_File" />
+            <MenuItem Header="_Options">
+                <MenuItem Header="All products" />
+                <MenuItem Header="New product" />
+                <MenuItem Header="Delivery note" />
+                <MenuItem Header="Goods received note" />
             </MenuItem>
-            <MenuItem Header="Program"/>
+            <MenuItem Header="Program" />
         </Menu>
-        <ToolBar Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Margin="2">
-            <ToggleButton Width="32" Height="32" Background="Blue" Margin="2"/>
-            <ToggleButton Width="32" Height="32" Background="Yellow" Margin="2"/>
-        </ToolBar>
-        <Border Grid.Row="2" Grid.Column="0">
+
+        <Border Grid.Row="1" Grid.Column="0" Background="#2E2E2E" BorderBrush="White" BorderThickness="1" >
+            <TextBlock Text="Azymut"
+               Foreground="White"
+               VerticalAlignment="Top"
+               HorizontalAlignment="Center"
+               FontFamily="Century Gothic"
+               FontSize="28"
+               FontWeight="Bold"
+               DockPanel.Dock="Top"
+               Margin="0,9,0,0" />
+        </Border>
+
+
+        <!-- Navigation Panel -->
+        <Border Grid.Row="2" Grid.Column="0" Background="#2E2E2E" BorderBrush="#444444" BorderThickness="1" Padding="10">
             <HeaderedContentControl 
                 Header="Actions" 
-                Background="Aqua" 
+                Foreground="White" 
                 Content="{Binding Path=Commands}" 
                 ContentTemplate="{StaticResource CommandsTemplate}"
-                Style="{StaticResource MainHCCStyle}"
-                />
+                Style="{StaticResource MainHCCStyle}" />
         </Border>
-        <Border Grid.Row="2" Grid.Column="1">
+
+        <!-- Dashboard Content -->
+        <Border Grid.Row="2" Grid.Column="1" Background="#1A1A1A" BorderBrush="#444444" BorderThickness="1" Padding="10">
             <HeaderedContentControl 
-                Header="Dashboard"
-                Content="{Binding Path=Workspaces}"
+                Header="Dashboard" 
+                Foreground="White" 
+                Content="{Binding Path=Workspaces}" 
                 ContentTemplate="{StaticResource WorkspacesTemplate}"
-                Style="{StaticResource MainHCCStyle}"
-            />
+                Style="{StaticResource MainHCCStyle}" />
         </Border>
-        <StatusBar Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2">
+
+        <!-- Footer Status Bar -->
+        <StatusBar Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" Background="#333333" Foreground="White">
             <StatusBarItem>
-                <TextBlock>Robert Durda</TextBlock>
+                <TextBlock Text="Robert Durda" />
             </StatusBarItem>
-            <Separator/>
+            <Separator />
             <StatusBarItem>
-                <TextBlock>WSB-NLU</TextBlock>
+                <TextBlock Text="WSB-NLU" />
             </StatusBarItem>
         </StatusBar>
     </Grid>
