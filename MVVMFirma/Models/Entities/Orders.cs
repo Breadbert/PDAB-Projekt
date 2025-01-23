@@ -17,26 +17,18 @@ namespace MVVMFirma.Models.Entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Orders()
         {
-            this.Invoices = new HashSet<Invoices>();
-            this.OrderDetails = new HashSet<OrderDetails>();
-            this.Payments = new HashSet<Payments>();
+            this.OrderItems = new HashSet<OrderItems>();
         }
     
         public int OrderID { get; set; }
         public Nullable<int> CustomerID { get; set; }
         public Nullable<System.DateTime> OrderDate { get; set; }
-        public Nullable<decimal> TotalAmount { get; set; }
-        public Nullable<int> EmployeeID { get; set; }
-        public Nullable<int> DiscountID { get; set; }
+        public Nullable<System.DateTime> ShippedDate { get; set; }
+        public Nullable<int> PaymentMethodID { get; set; }
     
         public virtual Customers Customers { get; set; }
-        public virtual Discounts Discounts { get; set; }
-        public virtual Employees Employees { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Invoices> Invoices { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<OrderDetails> OrderDetails { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Payments> Payments { get; set; }
+        public virtual ICollection<OrderItems> OrderItems { get; set; }
+        public virtual PaymentMethod PaymentMethod { get; set; }
     }
 }

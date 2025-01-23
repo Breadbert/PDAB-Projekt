@@ -9,6 +9,96 @@
     <DataTemplate DataType="{x:Type vm:NewProductViewModel}">
         <vw:NewProductView/>
     </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:AllInvoicesViewModel}">
+        <vw:AllInvoicesView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:NewInvoiceViewModel}">
+        <vw:NewInvoiceView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:AllInvoicePositionsViewModel}">
+        <vw:AllInvoicePositionView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:NewInvoicePositionViewModel}">
+        <vw:NewInvoicePositionView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:AllInventoryViewModel}">
+        <vw:AllInventoryView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:NewInventoryItemViewModel}">
+        <vw:NewInventoryItemView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:AllAddressViewModel}">
+        <vw:AllAddressView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:NewAddressViewModel}">
+        <vw:NewAddressView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:AllCategoriesViewModel}">
+        <vw:AllCategoriesView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:NewCategoryViewModel}">
+        <vw:NewCategoryView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:AllContractorsViewModel}">
+        <vw:AllContractorsView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:NewContractorViewModel}">
+        <vw:NewContractorView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:AllCustomersViewModel}">
+        <vw:AllCustomersView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:NewCustomerViewModel}">
+        <vw:NewCustomerView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:AllDiscountsViewModel}">
+        <vw:AllDiscountsView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:NewDiscountViewModel}">
+        <vw:NewDiscountView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:AllOrdersViewModel}">
+        <vw:AllOrdersView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:NewOrderViewModel}">
+        <vw:NewOrderView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:AllPaymentMethodsViewModel}">
+        <vw:AllPaymentMethodsView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:NewPaymentMethodViewModel}">
+        <vw:NewPaymentMethodView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:AllStatusViewModel}">
+        <vw:AllStatusView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:NewStatusViewModel}">
+        <vw:NewStatusView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:AllTypesViewModel}">
+        <vw:AllTypesView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:NewTypeViewModel}">
+        <vw:NewTypeView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:SalesReportViewModel}">
+        <vw:SalesReportView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:StockViewModel}">
+        <vw:StockView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:StatisticsViewModel}">
+        <vw:StatisticsView/>
+    </DataTemplate>
+
+    <Style TargetType="TextBox">
+        <Style.Triggers>
+            <Trigger Property="Validation.HasError" Value="True">
+                <Setter Property="ToolTip"
+                        Value="{Binding RelativeSource={x:Static RelativeSource.Self}, Path=(Validation.Errors)[0].ErrorContent}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
 
     <Style x:Key="MainHCCStyle" TargetType="{x:Type HeaderedContentControl}">
         <Setter Property="HeaderTemplate">

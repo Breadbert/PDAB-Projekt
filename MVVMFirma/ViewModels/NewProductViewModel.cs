@@ -1,108 +1,121 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Windows.Input;
 using MVVMFirma.Helper;
+using System.Text.RegularExpressions;
+using MVVMFirma.Models.BusinessLogic;
 using MVVMFirma.Models.Entities;
+using MVVMFirma.Models.EntitiesForView;
+using MVVMFirma.Validators;
 
 namespace MVVMFirma.ViewModels
 {
-    public class NewProductViewModel : WorkspaceViewModel
+    public class NewProductViewModel : OneViewModel<Product>, IDataErrorInfo
     {
-        #region DB
-        private PDABEntities pdabEntities;
+        #region Contructor
+        public NewProductViewModel() 
+            : base("Product") 
+        { 
+            item = new Product();
+        }
         #endregion
 
-        #region Item
-        private Products product;
-        #endregion
-
-        #region Command
-        private BaseCommand _SaveCommand;
-        public ICommand SaveCommand
+        #region Fields
+        public string Name
         {
             get
             {
-                if (_SaveCommand == null)
-                    _SaveCommand = new BaseCommand(() => SaveAndClose());
-                return _SaveCommand;
+                return item.Name;
             }
-        }
-        #endregion
-
-        #region Constructor
-        public NewProductViewModel()
-        {
-            base.DisplayName = "Product";
-            pdabEntities = new PDABEntities();
-            product = new Products();
-        }
-        #endregion
-
-        #region Properties
-/*        public int ID
-        {
-            get { return product.ProductID; }
-            set 
-            {
-                product.ProductID = value;
-                OnPropertyChanged(() => ProductID);
-            }
-        }*/
-
-        public string ProductName
-        {
-            get { return product.ProductName; }
             set
             {
-                product.ProductName = value;
-                OnPropertyChanged(() => ProductName);
+                item.Name = value;
+                OnPropertyChanged(() => Name);
             }
         }
 
         public decimal? Price
         {
-            get { return product.Price; }
+            get
+            { return item.Price; }
             set
             {
-                product.Price = value;
+                item.Price = value;
                 OnPropertyChanged(() => Price);
             }
         }
 
-        public int? StockQuantity
+        public decimal? Cost
         {
-            get { return product.StockQuantity; }
+            get
+            { return item.Cost; }
             set
             {
-                product.StockQuantity = value;
-                OnPropertyChanged(() => StockQuantity);
+                item.Cost = value;
+                OnPropertyChanged(() => Cost);
             }
         }
 
         public int? CategoryID
         {
-            get { return product.CategoryID; }
+            get
+            { return item.CategoryID; }
             set
             {
-                product.CategoryID = value;
+                item.CategoryID = value;
                 OnPropertyChanged(() => CategoryID);
             }
         }
         #endregion
 
-        #region Helpers
-        public void Save()
+        #region Properties for ComboBox
+        public IQueryable<KeyAndValue> CategoriesItems
         {
-            pdabEntities.Products.Add(product);
+            get
+            {
+                return new CategoriesB(pdabEntities).GetCategoriesKeyAndValueItems();
+            }
+        }
+        #endregion
+
+        #region Helpers
+        public override void Save()
+        {
+            pdabEntities.Product.Add(item);
             pdabEntities.SaveChanges();
         }
+        #endregion
 
-        public void SaveAndClose()
+        #region Validation
+        private string _validationMessage = string.Empty;
+        public string this[string propertiesName]
         {
-            Save();
-            OnRequestClose();
+            get
+            {
+                if (propertiesName == nameof(Name))
+                {
+                    return NewProductValidator.ValidateProductName(Name);
+                }
+
+                if (propertiesName == nameof(Price))
+                {
+                    return NewProductValidator.ValidateProductPrice(Price, Cost);
+                }
+
+                if (propertiesName == nameof(Cost))
+                {
+                    return NewProductValidator.ValidateProductCost(Cost);
+                }
+                return string.Empty;
+            }
+        }
+        public string Error => string.Empty;
+        protected override bool IsValid()
+        {
+            return string.IsNullOrEmpty(_validationMessage);
         }
         #endregion
     }

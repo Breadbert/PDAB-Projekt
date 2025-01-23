@@ -7,14 +7,23 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid Background="White">
-        <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding List}" AlternatingRowBackground="LightBlue" AlternationCount="2">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Product ID" Binding="{Binding ProductID}"/>
-                <DataGridTextColumn Header="Product Name" Binding="{Binding ProductName}"/>
-                <DataGridTextColumn Header="Price" Binding="{Binding Price}"/>
-                <DataGridTextColumn Header="Stock Quantity" Binding="{Binding StockQuantity}"/>
-                <DataGridTextColumn Header="Category ID" Binding="{Binding CategoryID}"/>
-            </DataGrid.Columns>
-        </DataGrid>
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <DataGrid AutoGenerateColumns="False" 
+                      ItemsSource="{Binding List}" 
+                      AlternatingRowBackground="LightBlue" 
+                      Margin="0,0,0,0" 
+                      IsReadOnly="True" 
+                      SelectedItem="{Binding Path=ChosenProduct, Mode=TwoWay}"
+                      ScrollViewer.CanContentScroll="True"
+                      ScrollViewer.VerticalScrollBarVisibility="Auto">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Product ID" Binding="{Binding ProductID}"/>
+                    <DataGridTextColumn Header="Product Name" Binding="{Binding Name}"/>
+                    <DataGridTextColumn Header="Price" Binding="{Binding Price}"/>
+                    <DataGridTextColumn Header="Cost" Binding="{Binding Cost}"/>
+                    <DataGridTextColumn Header="Category" Binding="{Binding Category}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </ScrollViewer>
     </Grid>
 </local:AllViewsBase>

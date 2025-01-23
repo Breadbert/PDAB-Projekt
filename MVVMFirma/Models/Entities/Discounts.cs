@@ -17,17 +17,17 @@ namespace MVVMFirma.Models.Entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Discounts()
         {
-            this.Orders = new HashSet<Orders>();
+            this.OrderItems = new HashSet<OrderItems>();
         }
     
         public int DiscountID { get; set; }
-        public string DiscountName { get; set; }
+        public string Name { get; set; }
         public Nullable<decimal> Percentage { get; set; }
         public Nullable<System.DateTime> StartDate { get; set; }
         public Nullable<System.DateTime> EndDate { get; set; }
-        public string DiscountCode { get; set; }
+        public Nullable<bool> IsActive { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Orders> Orders { get; set; }
+        public virtual ICollection<OrderItems> OrderItems { get; set; }
     }
 }

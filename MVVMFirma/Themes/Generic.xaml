@@ -8,19 +8,38 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:AllViewsBase}">
-                    <Grid>
+                    <Grid Margin="0,10,0,0">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="34"/>
-                            <RowDefinition Height="60"/>
+                            <RowDefinition Height="100"/>
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
-                        <ToolBar Grid.Row="0">
-                            <ToggleButton Content="Create" Margin="0,2,0,2"/>
-                            <ToggleButton Content="Update" Margin="0,2,0,2"/>
-                            <ToggleButton Content="Delete" Margin="0,2,0,2"/>
-                            <ToggleButton Content="Refresh" Margin="0,2,0,2"/>
+                        <ToolBar Grid.Row="0" Margin="0,2,0,2">
+                            <ToggleButton Content="Add" Margin="0,2,0,2" Command="{Binding AddCommand}"/>
+                            <ToggleButton Content="Refresh" Margin="0,2,0,2" Command="{Binding LoadCommand}"/>
                         </ToolBar>
-                        <ContentPresenter Grid.Row="1" Margin="0,5,0,5"/>
+                        <StackPanel Grid.Row="1" Background="Azure">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition  Height="25"/>
+                                    <RowDefinition  Height="25"/>
+                                    <RowDefinition  Height="30"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition  Width="230"/>
+                                    <ColumnDefinition  Width="60"/>
+                                    <ColumnDefinition  Width="230"/>
+                                </Grid.ColumnDefinitions>
+                                <Label  Grid.Row="0"  Grid.Column="0" Content="Sort:  "/>
+                                <ComboBox  Grid.Row="1"  Grid.Column="0" ItemsSource="{Binding  SortComboBoxItems}"  SelectedValue="{Binding Path=SortField,Mode=TwoWay}"  Margin="0,0,60,0"/>
+                                <Button  Content="Sort"  Grid.Row="1"  Grid.Column="0" Command="{Binding SortCommand}" Margin="170,0,0,0"/>
+                                <Label  Grid.Row="0"  Grid.Column="2" Content="Search:  "/>
+                                <ComboBox  Grid.Row="1"  Grid.Column="2" ItemsSource="{Binding  FindComboBoxItems}"  SelectedValue="{Binding Path=FindField,Mode=TwoWay}"  />
+                                <TextBox  Grid.Row="2"  Grid.Column="2" Margin="0,5,60,0"  Text="{Binding FindTextBox}"/>
+                                <Button  Content="Search"  Grid.Row="3"  Grid.Column="2" Command="{Binding FindCommand}" Margin="170,5,0,0"/>
+                            </Grid>
+                        </StackPanel>
+                        <ContentPresenter Grid.Row="2" Margin="0,5,0,5"/>
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>

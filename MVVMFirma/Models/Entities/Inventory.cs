@@ -16,9 +16,10 @@ namespace MVVMFirma.Models.Entities
     {
         public int InventoryID { get; set; }
         public Nullable<int> ProductID { get; set; }
-        public Nullable<int> StockQuantity { get; set; }
-        public string Location { get; set; }
+        public Nullable<int> Quantity { get; set; }
+        public Nullable<int> MinimumStockLevel { get; set; }
+        public Nullable<System.DateTime> RestockDate { get; set; }
     
-        public virtual Products Products { get; set; }
+        public virtual Product Product { get; set; }
     }
 }
