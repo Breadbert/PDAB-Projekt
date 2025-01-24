@@ -30,7 +30,7 @@ namespace MVVMFirma.ViewModels
                         InvoiceNumber = invoicePosition.Invoice.Number,
                         ProductID = invoicePosition.Product.ProductID,
                         ProductName = invoicePosition.Product.Name,
-                        Price = invoicePosition.Product.Price,
+                        ProductCost = invoicePosition.Product.Cost,
                         Amount = invoicePosition.Amount
                     }
                 );

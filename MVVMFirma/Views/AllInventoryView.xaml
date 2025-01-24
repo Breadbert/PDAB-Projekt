@@ -7,20 +7,35 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Background="White">
-        <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" Margin="10" Grid.Row="0">
+            <CheckBox Content="Hide 0 Minimum Stock" 
+                      IsChecked="{Binding HideZeroMinimumStock}" Margin="5,0" />
+            <CheckBox Content="Show Only Low Stock Products" 
+                      IsChecked="{Binding ShowOnlyLowStock}" Margin="5,0" />
+            <CheckBox Content="Sort by Quantity Descending" 
+                      IsChecked="{Binding SortByQuantityDescending}" Margin="5,0" />
+            <Button Content="Save as PDF" Command="{Binding SaveAsPDFCommand}" Margin="5,0" />
+        </StackPanel>
+
+        <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row="1">
             <DataGrid AutoGenerateColumns="False" 
-                      ItemsSource="{Binding List}" 
+                      ItemsSource="{Binding FilteredList}" 
                       AlternatingRowBackground="LightBlue" 
                       Margin="0,0,0,0" 
                       IsReadOnly="True"
                       ScrollViewer.CanContentScroll="True"
                       ScrollViewer.VerticalScrollBarVisibility="Auto">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Product ID" Binding="{Binding ProductID}"/>
-                    <DataGridTextColumn Header="Product Name" Binding="{Binding ProductName}"/>
-                    <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity}"/>
-                    <DataGridTextColumn Header="Minimum Stock Level" Binding="{Binding MinimumStockLevel}"/>
-                    <DataGridTextColumn Header="Restock Date" Binding="{Binding RestockDate}"/>
+                    <DataGridTextColumn Header="Product ID" Binding="{Binding ProductID}" />
+                    <DataGridTextColumn Header="Product Name" Binding="{Binding ProductName}" />
+                    <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity}" />
+                    <DataGridTextColumn Header="Minimum Stock Level" Binding="{Binding MinimumStockLevel}" />
+                    <DataGridTextColumn Header="Restock Date" Binding="{Binding RestockDate}" />
                 </DataGrid.Columns>
             </DataGrid>
         </ScrollViewer>

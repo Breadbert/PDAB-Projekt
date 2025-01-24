@@ -33,7 +33,7 @@
             <DatePicker Grid.Column="1" Grid.Row="3" Margin="0,8,0,8" SelectedDate="{Binding Path=EndDate, UpdateSourceTrigger=PropertyChanged}"/>
 
             <Label Grid.Column="0" Grid.Row="4" Margin="0,8,0,8" Content="Set Active"/>
-            <CheckBox Content="Is Active?" Grid.Column="1" Grid.Row="4" Margin="50,15,0,0" Command="{Binding Path=IsActive, UpdateSourceTrigger=PropertyChanged}" Grid.ColumnSpan="2"/>
+            <CheckBox Content="Is Active?" Grid.Column="1" Grid.Row="4" Margin="50,15,0,0" IsChecked="{Binding Path=IsActive, UpdateSourceTrigger=PropertyChanged}" Grid.ColumnSpan="2"/>
         </Grid>
     </Grid>
 </local:OneViewBase>

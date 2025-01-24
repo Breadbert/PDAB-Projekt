@@ -116,6 +116,7 @@ namespace MVVMFirma.ViewModels
         }
         public override void Save()
         {
+            item.Price = ProductCost;
             pdabEntities.InvoicePosition.Add(item);
             pdabEntities.SaveChanges();
         }

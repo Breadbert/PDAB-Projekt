@@ -13,7 +13,7 @@ namespace MVVMFirma.Models.EntitiesForView
         public string InvoiceNumber { get; set; }
         public int? ProductID { get; set; }
         public string ProductName { get; set; }
-        public decimal? Price { get; set; }
+        public decimal? ProductCost { get; set; }
         public int? Amount { get; set; }
     }
 }

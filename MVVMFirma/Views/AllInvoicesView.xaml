@@ -7,24 +7,39 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="800">
     <Grid>
-        <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" Margin="10" Grid.Row="0">
+            <CheckBox Content="Show Only Approved Invoices" 
+                      IsChecked="{Binding ShowOnlyApprovedInvoices}" Margin="5,0" />
+            <CheckBox Content="Show Overdue Invoices" 
+                      IsChecked="{Binding ShowOverdueInvoices}" Margin="5,0" />
+            <CheckBox Content="Sort by Issue Date Descending" 
+                      IsChecked="{Binding SortByIssueDateDescending}" Margin="5,0" />
+            <Button Content="Save as PDF" Command="{Binding SaveInvoiceAsPDFCommand}" Margin="5,0" />
+        </StackPanel>
+
+        <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row="1">
             <DataGrid AutoGenerateColumns="False" 
-                      ItemsSource="{Binding List}" 
+                      ItemsSource="{Binding FilteredList}" 
                       AlternatingRowBackground="LightBlue" 
-                      Margin="0,0,0,-260" 
+                      Margin="0,0,0,0" 
                       IsReadOnly="True" 
                       SelectedItem="{Binding Path=ChosenInvoice, Mode=TwoWay}"
                       ScrollViewer.CanContentScroll="True"
                       ScrollViewer.VerticalScrollBarVisibility="Auto">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Invoice ID" Binding="{Binding InvoiceID}"/>
-                    <DataGridTextColumn Header="Number" Binding="{Binding Number}"/>
-                    <DataGridCheckBoxColumn IsReadOnly="True" Header="Is Approved" Binding="{Binding IsApproved}"/>
-                    <DataGridTextColumn Header="Issue Date" Binding="{Binding IssueDate}"/>
-                    <DataGridTextColumn Header="Due Date" Binding="{Binding DueDate}"/>
-                    <DataGridTextColumn Header="Contractor NIP" Binding="{Binding ContractorNIP}"/>
-                    <DataGridTextColumn Header="Contractor Name" Binding="{Binding ContractorName}"/>
-                    <DataGridTextColumn Header="Payment Method" Binding="{Binding PaymentMethod}"/>
+                    <DataGridTextColumn Header="Invoice ID" Binding="{Binding InvoiceID}" />
+                    <DataGridTextColumn Header="Number" Binding="{Binding Number}" />
+                    <DataGridCheckBoxColumn IsReadOnly="True" Header="Is Approved" Binding="{Binding IsApproved}" />
+                    <DataGridTextColumn Header="Issue Date" Binding="{Binding IssueDate}" />
+                    <DataGridTextColumn Header="Due Date" Binding="{Binding DueDate}" />
+                    <DataGridTextColumn Header="Contractor NIP" Binding="{Binding ContractorNIP}" />
+                    <DataGridTextColumn Header="Contractor Name" Binding="{Binding ContractorName}" />
+                    <DataGridTextColumn Header="Payment Method" Binding="{Binding PaymentMethod}" />
                 </DataGrid.Columns>
             </DataGrid>
         </ScrollViewer>

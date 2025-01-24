@@ -22,7 +22,7 @@
                     <DataGridTextColumn Header="Invoice Number" Binding="{Binding InvoiceNumber}"/>
                     <DataGridTextColumn Header="Product ID" Binding="{Binding ProductID}"/>
                     <DataGridTextColumn Header="Product Name" Binding="{Binding ProductName}"/>
-                    <DataGridTextColumn Header="Unit Price" Binding="{Binding Price}"/>
+                    <DataGridTextColumn Header="Unit Price" Binding="{Binding ProductCost}"/>
                     <DataGridTextColumn Header="Amount" Binding="{Binding Amount}"/>
                 </DataGrid.Columns>
             </DataGrid>

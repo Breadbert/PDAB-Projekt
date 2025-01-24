@@ -63,6 +63,12 @@
     <DataTemplate DataType="{x:Type vm:NewOrderViewModel}">
         <vw:NewOrderView/>
     </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:AllOrderItemsViewModel}">
+        <vw:AllOrderItemsView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:NewOrderItemViewModel}">
+        <vw:AllOrderItemsView/>
+    </DataTemplate>
     <DataTemplate DataType="{x:Type vm:AllPaymentMethodsViewModel}">
         <vw:AllPaymentMethodsView/>
     </DataTemplate>
@@ -127,10 +133,6 @@
         <Setter Property="IsTabStop" Value="False" />
         <Setter Property="Template">
             <Setter.Value>
-                <!-- 
-        This template ensures that content of a HeaderedContentControl 
-        fills the available vertical space. 
-        -->
                 <ControlTemplate TargetType="{x:Type HeaderedContentControl}">
                     <DockPanel>
                         <ContentPresenter 
@@ -148,9 +150,6 @@
         </Setter>
     </Style>
 
-    <!--
-  This style ensures that the borders in the main window are consistent.
-  -->
     <Style x:Key="MainBorderStyle" TargetType="{x:Type Border}">
         <Setter Property="Background" Value="WhiteSmoke" />
         <Setter Property="BorderBrush" Value="LightGray" />
@@ -159,10 +158,6 @@
         <Setter Property="SnapsToDevicePixels" Value="True" />
     </Style>
 
-    <!--
-  This template explains how to render the list of commands on the left
-  side in the main window (the 'Control Panel' area).
-  -->
     <DataTemplate x:Key="CommandsTemplate">
         <ItemsControl IsTabStop="False" ItemsSource="{Binding}" Margin="6,2">
             <ItemsControl.ItemTemplate>
@@ -177,10 +172,6 @@
         </ItemsControl>
     </DataTemplate>
 
-    <!-- 
-  This template explains how to render 
-  a tab item with a close button.
-  -->
     <DataTemplate x:Key="ClosableTabItemTemplate">
         <DockPanel Width="120">
             <Button 
@@ -204,9 +195,6 @@
         </DockPanel>
     </DataTemplate>
 
-    <!--
-  This template explains how to render the 'Workspace' content area in the main window.
-  -->
     <DataTemplate x:Key="WorkspacesTemplate">
         <TabControl 
       IsSynchronizedWithCurrentItem="True" 

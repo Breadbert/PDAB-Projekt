@@ -23,14 +23,12 @@ namespace MVVMFirma.ViewModels
             : base("Order")
         {
             item = new Orders();
-            Messenger.Default.Register<ProductsForAllView>(this, getChosenProduct);
             Messenger.Default.Register<CustomersForAllView>(this, getChosenCustomer);
         }
         #endregion
 
         #region Command
         private BaseCommand _ShowCustomers;
-        private BaseCommand _ShowProducts;
         public ICommand ShowCustomers
         {
             get
@@ -40,25 +38,12 @@ namespace MVVMFirma.ViewModels
                 return _ShowCustomers;
             }
         }
-        public ICommand ShowProducts
-        {
-            get
-            {
-                if (_ShowProducts == null)
-                    _ShowProducts = new BaseCommand(() => showProducts());
-                return _ShowProducts;
-            }
-        }
-
+        
         private void showCustomers()
         {
             Messenger.Default.Send<string>("CustomersAll");
         }
 
-        private void showProducts()
-        {
-            Messenger.Default.Send<string>("ProductsAll");
-        }
         #endregion
 
         #region Fields
@@ -75,9 +60,6 @@ namespace MVVMFirma.ViewModels
 
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public int? ProductID {  get; set; }
-
-        public string ProductName { get; set; }
 
         public DateTime? OrderDate
         {
@@ -122,14 +104,6 @@ namespace MVVMFirma.ViewModels
                 return new PaymentMethodB(pdabEntities).GetPaymentMethodKeyAndValueItems();
             }
         }
-
-        public IQueryable<KeyAndValue> DiscountsItems
-        {
-            get
-            {
-                return new DiscountsB(pdabEntities).GetDiscountsKeyAndValueItems();
-            }
-        }
         #endregion
 
         #region Helpers
@@ -139,11 +113,7 @@ namespace MVVMFirma.ViewModels
             FirstName = customer.FirstName;
             LastName = customer.LastName;
         }
-        private void getChosenProduct(ProductsForAllView product)
-        {
-            ProductID = product.ProductID;
-            ProductName = product.Name;
-        }
+        
         public override void Save()
         {
             pdabEntities.Orders.Add(item);

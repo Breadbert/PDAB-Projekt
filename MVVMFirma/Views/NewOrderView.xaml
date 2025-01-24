@@ -21,9 +21,6 @@
                 <RowDefinition Height="45"/>
                 <RowDefinition Height="45"/>
                 <RowDefinition Height="45"/>
-                <RowDefinition Height="45"/>
-                <RowDefinition Height="45"/>
-                <RowDefinition Height="45"/>
             </Grid.RowDefinitions>
             <Label Grid.Column="0" Grid.Row="0" Margin="0,8,0,8" Content="Customer ID"/>
             <TextBox Grid.Column="1" Grid.Row="0" Margin="0,8,0,8" IsReadOnly="True" Text="{Binding Path=CustomerID, UpdateSourceTrigger=PropertyChanged}"/>
@@ -35,34 +32,19 @@
             <TextBox Grid.Column="1" Grid.Row="2" Margin="0,8,0,8" IsReadOnly="True" Text="{Binding Path=LastName, UpdateSourceTrigger=PropertyChanged}"/>
             <Button Content=". . ." Grid.Column="3" Grid.Row="2" Margin="8,8,0,8" Command="{Binding ShowCustomers}"/>
 
-            <Label Grid.Column="0" Grid.Row="3" Margin="0,8,0,8" Content="Product"/>
-            <TextBox Grid.Column="1" Grid.Row="3" Margin="0,8,0,8" Text="{Binding Path=ProductName, UpdateSourceTrigger=PropertyChanged}"/>
-            <Button Content=". . ." Grid.Column="3" Grid.Row="3" Margin="8,8,0,8" Command="{Binding ShowProducts}"/>
-
-            <Label Grid.Column="0" Grid.Row="4" Margin="0,8,0,8" Content="Quantity"/>
-            <TextBox Grid.Column="1" Grid.Row="4" Margin="0,8,0,8" Text="{Binding Path=Quantity, UpdateSourceTrigger=PropertyChanged}"/>
-
-            <Label Grid.Column="0" Grid.Row="5" Margin="0,8,0,8" Content="Discount"/>
-            <ComboBox Grid.Column="1" Grid.Row="5" Margin="0,8,0,8"
-              ItemsSource="{Binding DiscountsItems}"
-              DisplayMemberPath="Value"
-              SelectedValuePath="Key"
-              SelectedValue="{Binding Path=DiscountID, Mode=TwoWay}"
-              />
-
-            <Label Grid.Column="0" Grid.Row="6" Margin="0,8,0,8" Content="Payment Method"/>
-            <ComboBox Grid.Column="1" Grid.Row="6" Margin="0,8,0,8"
+            <Label Grid.Column="0" Grid.Row="3" Margin="0,8,0,8" Content="Payment Method"/>
+            <ComboBox Grid.Column="1" Grid.Row="3" Margin="0,8,0,8"
               ItemsSource="{Binding PaymentMethodsItems}"
               DisplayMemberPath="Value"
               SelectedValuePath="Key"
               SelectedValue="{Binding Path=PaymentMethodID, Mode=TwoWay}"
               />
 
-            <Label Grid.Column="0" Grid.Row="7" Margin="0,8,0,8" Content="Order Date"/>
-            <DatePicker Grid.Column="1" Grid.Row="7" Margin="0,8,0,8" SelectedDate="{Binding Path=OrderDate, UpdateSourceTrigger=PropertyChanged}"/>
+            <Label Grid.Column="0" Grid.Row="4" Margin="0,8,0,8" Content="Order Date"/>
+            <DatePicker Grid.Column="1" Grid.Row="4" Margin="0,8,0,8" SelectedDate="{Binding Path=OrderDate, UpdateSourceTrigger=PropertyChanged}"/>
 
-            <Label Grid.Column="0" Grid.Row="8" Margin="0,8,0,8" Content="Shipped Date"/>
-            <DatePicker Grid.Column="1" Grid.Row="8" Margin="0,8,0,8" SelectedDate="{Binding Path=ShippedDate, UpdateSourceTrigger=PropertyChanged}"/>
+            <Label Grid.Column="0" Grid.Row="5" Margin="0,8,0,8" Content="Shipped Date"/>
+            <DatePicker Grid.Column="1" Grid.Row="5" Margin="0,8,0,8" SelectedDate="{Binding Path=ShippedDate, UpdateSourceTrigger=PropertyChanged}"/>
         </Grid>
     </Grid>
 </local:OneViewBase>

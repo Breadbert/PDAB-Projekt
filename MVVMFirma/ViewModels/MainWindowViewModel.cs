@@ -79,6 +79,10 @@ namespace MVVMFirma.ViewModels
                     new BaseCommand(() => this.ShowAllView<AllOrdersViewModel>())),
 
                 new CommandViewModel(
+                    "View Order Items",
+                    new BaseCommand(() => this.ShowAllView<AllOrderItemsViewModel>())),
+
+                new CommandViewModel(
                     "View Payment Methods",
                     new BaseCommand(() => this.ShowAllView<AllPaymentMethodsViewModel>())),
 
@@ -233,8 +237,16 @@ namespace MVVMFirma.ViewModels
                     CreateView(new NewTypeViewModel());
                     break;
 
+                case "OrdersAll":
+                    ShowAllView<AllOrdersViewModel>();
+                    break;
+
                 case "OrdersAdd":
                     CreateView(new NewOrderViewModel());
+                    break;
+
+                case "Order ItemsAdd":
+                    CreateView(new NewOrderItemViewModel());
                     break;
 
                 case "InvoicePositionAdd":

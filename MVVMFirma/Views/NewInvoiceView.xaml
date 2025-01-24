@@ -26,7 +26,7 @@
             <TextBox Grid.Column="1" Grid.Row="0" Margin="0,8,0,8" Text="{Binding Path=Number, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
 
             <Label Grid.Column="0" Grid.Row="1" Margin="0,8,0,8" Content="Approval"/>
-            <CheckBox Grid.Column="1" Grid.Row="1" Margin="0,8,0,8" Command="{Binding Path=IsApproved, UpdateSourceTrigger=PropertyChanged}"/>
+            <CheckBox Grid.Column="1" Grid.Row="1" Margin="0,8,0,8" IsChecked="{Binding Path=IsApproved, UpdateSourceTrigger=PropertyChanged}"/>
 
             <Label Grid.Column="0" Grid.Row="2" Margin="0,8,0,8" Content="Date of issue"/>
             <DatePicker Grid.Column="1" Grid.Row="2" Margin="0,8,0,8" SelectedDate="{Binding Path=IssueDate, UpdateSourceTrigger=PropertyChanged}"/>
